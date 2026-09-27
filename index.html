@@ -1,0 +1,932 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clara Wang | Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f8f7f4;
+            color: #17202a;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(248, 247, 244, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #7d8fa3;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #17202a;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #70869c;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 8% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: #e5e9ed;
+            top: -200px;
+            right: -150px;
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: #dce3e9;
+            bottom: -100px;
+            left: -80px;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .small-heading {
+            color: #718396;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(60px, 9vw, 115px);
+            line-height: 0.95;
+            font-weight: 500;
+            letter-spacing: -5px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: #70869c;
+        }
+
+        .hero-description {
+            max-width: 680px;
+            font-size: 20px;
+            color: #5e6872;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-dark {
+            background: #17202a;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-3px);
+            background: #344555;
+        }
+
+        .btn-light {
+            border: 1px solid #b8c0c7;
+            color: #17202a;
+            background: transparent;
+        }
+
+        .btn-light:hover {
+            background: #e9ecef;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 110px 8%;
+        }
+
+        .section-label {
+            color: #7a8c9e;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #ffffff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 45px;
+            font-weight: 500;
+            line-height: 1.15;
+        }
+
+        .about-text {
+            color: #606a73;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .education-box {
+            margin-top: 30px;
+            padding: 20px;
+            border-left: 3px solid #7a8c9e;
+            background: #f7f7f5;
+        }
+
+        .education-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .education-box span {
+            color: #707980;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            background: #f1f2f0;
+        }
+
+        .skills-intro {
+            max-width: 650px;
+            color: #68727b;
+            margin-bottom: 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            min-height: 230px;
+            transition: 0.3s;
+            border: 1px solid #e4e5e3;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+        }
+
+        .skill-number {
+            color: #a2adb6;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .skill-box h3 {
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #eef0f1;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #53616d;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            background: #ffffff;
+        }
+
+        .projects-intro {
+            max-width: 650px;
+            color: #68727b;
+            margin-bottom: 50px;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 30px;
+            padding: 45px 0;
+            border-top: 1px solid #dfe1e2;
+            transition: 0.3s;
+        }
+
+        .project:last-child {
+            border-bottom: 1px solid #dfe1e2;
+        }
+
+        .project-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #9aa5ae;
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 50px;
+        }
+
+        .project h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .project-company {
+            color: #788b9d;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .project-description {
+            color: #667079;
+            line-height: 1.8;
+        }
+
+        .project-details {
+            padding-left: 30px;
+            border-left: 1px solid #e0e2e3;
+        }
+
+        .project-details h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8a969f;
+            margin-bottom: 15px;
+        }
+
+        .project-details p {
+            color: #59656e;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: #17202a;
+            color: white;
+            text-align: center;
+            padding: 120px 8%;
+        }
+
+        .contact .section-label {
+            color: #aab8c4;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(45px, 7vw, 75px);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #b9c2c9;
+            max-width: 550px;
+            margin: 0 auto 35px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 12px 25px;
+            border: 1px solid #56636e;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: white;
+            color: #17202a;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #17202a;
+            border-top: 1px solid #35414b;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            color: #87939d;
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 130px 7% 80px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            section {
+                padding: 80px 7%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .project-details {
+                border-left: none;
+                border-top: 1px solid #e0e2e3;
+                padding: 25px 0 0;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+        <div class="logo">
+            Clara<span>.</span>
+        </div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-heading">
+                Business Analytics × Human Resources
+            </div>
+
+            <h1>
+                Hi, I'm<br>
+                Clara <span>Wang.</span>
+            </h1>
+
+            <p class="hero-description">
+                I’m a Rutgers Business School student passionate about
+                using data, technology, and business strategy to solve
+                real-world organizational challenges.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-dark">
+                    Explore My Work
+                </a>
+
+                <a href="#contact" class="btn btn-light">
+                    Let's Connect
+                </a>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about" class="about">
+
+        <div class="about-grid">
+
+            <div class="about-left">
+
+                <div class="section-label">
+                    01 — About
+                </div>
+
+                <h2>
+                    Data-minded.<br>
+                    People-focused.
+                </h2>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+                    I am a Rutgers Business School student pursuing a
+                    B.S. in Business Analytics & Information Technology
+                    and Human Resource Management.
+                </p>
+
+                <p>
+                    My interests sit at the intersection of data,
+                    technology, finance, and people. I enjoy turning
+                    information into meaningful insights that can help
+                    organizations make better decisions.
+                </p>
+
+                <p>
+                    Through academic projects and professional experience,
+                    I have developed experience in data analysis,
+                    financial analysis, HR operations, and information
+                    management.
+                </p>
+
+                <div class="education-box">
+                    <strong>Rutgers Business School</strong>
+                    <span>
+                        B.S. Business Analytics & Information Technology
+                        + Human Resource Management
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills" class="skills">
+
+        <div class="section-label">
+            02 — Skills
+        </div>
+
+        <h2 class="section-title">
+            What I bring to the table.
+        </h2>
+
+        <p class="skills-intro">
+            A combination of technical, analytical, and people-focused
+            skills that allows me to approach business problems from
+            multiple perspectives.
+        </p>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-box">
+
+                <div class="skill-number">
+                    01
+                </div>
+
+                <h3>Analytics & Technology</h3>
+
+                <div class="skill-tags">
+                    <span class="tag">Excel</span>
+                    <span class="tag">R</span>
+                    <span class="tag">RStudio</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Data Visualization</span>
+                    <span class="tag">Time Series</span>
+                    <span class="tag">GitHub</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-box">
+
+                <div class="skill-number">
+                    02
+                </div>
+
+                <h3>Business & Finance</h3>
+
+                <div class="skill-tags">
+                    <span class="tag">Financial Analysis</span>
+                    <span class="tag">Forecasting</span>
+                    <span class="tag">Business Analytics</span>
+                    <span class="tag">Process Improvement</span>
+                    <span class="tag">Data Management</span>
+                    <span class="tag">Research</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-box">
+
+                <div class="skill-number">
+                    03
+                </div>
+
+                <h3>Human Resources</h3>
+
+                <div class="skill-tags">
+                    <span class="tag">Talent Development</span>
+                    <span class="tag">Recruitment</span>
+                    <span class="tag">HR Operations</span>
+                    <span class="tag">Workforce Analytics</span>
+                    <span class="tag">Organization</span>
+                    <span class="tag">Leadership</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects" class="projects">
+
+        <div class="section-label">
+            03 — Selected Work
+        </div>
+
+        <h2 class="section-title">
+            Projects that made an impact.
+        </h2>
+
+        <p class="projects-intro">
+            A selection of professional work completed during my
+            experience at Princeton University.
+        </p>
+
+
+        <!-- PROJECT 01 -->
+
+        <div class="project">
+
+            <div class="project-number">
+                01
+            </div>
+
+            <div class="project-content">
+
+                <div>
+
+                    <div class="project-company">
+                        Princeton University · Summer 2026
+                    </div>
+
+                    <h3>
+                        Financial Funding & Commitments
+                    </h3>
+
+                    <p class="project-description">
+                        Analyzed Actual versus Expected funding amounts
+                        across Academic Years 2024–2027 to identify
+                        financial variances and ensure accurate and
+                        reliable funding records.
+                    </p>
+
+                </div>
+
+
+                <div class="project-details">
+
+                    <h4>
+                        Focus Areas
+                    </h4>
+
+                    <p>
+                        Financial Analysis<br>
+                        Data Analysis<br>
+                        Variance Analysis<br>
+                        Data Management
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 02 -->
+
+        <div class="project">
+
+            <div class="project-number">
+                02
+            </div>
+
+            <div class="project-content">
+
+                <div>
+
+                    <div class="project-company">
+                        Princeton University · Summer 2026
+                    </div>
+
+                    <h3>
+                        Faculty Reappointment, Promotion & Retirement
+                    </h3>
+
+                    <p class="project-description">
+                        Developed faculty agendas for 50+ departments
+                        across 4 academic divisions and updated 850+
+                        faculty records for reappointment, promotion,
+                        retirement, and academic rank for the 2027
+                        academic year.
+                    </p>
+
+                </div>
+
+
+                <div class="project-details">
+
+                    <h4>
+                        Focus Areas
+                    </h4>
+
+                    <p>
+                        Data Management<br>
+                        HR Administration<br>
+                        Research<br>
+                        Organizational Skills
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact" class="contact">
+
+        <div class="section-label">
+            04 — Contact
+        </div>
+
+        <h2>
+            Let's connect.
+        </h2>
+
+        <p>
+            I'm always open to connecting with recruiters,
+            professionals, and others interested in business,
+            analytics, technology, and HR.
+        </p>
+
+        <div class="contact-links">
+
+            <!-- Replace these with your actual links -->
+
+            <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                class="contact-btn">
+                LinkedIn
+            </a>
+
+            <a
+                href="https://github.com/"
+                target="_blank"
+                class="contact-btn">
+                GitHub
+            </a>
+
+            <a
+                href="mailto:your-email@example.com"
+                class="contact-btn">
+                Email Me
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <span>
+            © 2026 Clara Wang
+        </span>
+
+        <span>
+            Business Analytics · Technology · HR
+        </span>
+
+    </footer>
+
+
+</body>
+</html>
+
